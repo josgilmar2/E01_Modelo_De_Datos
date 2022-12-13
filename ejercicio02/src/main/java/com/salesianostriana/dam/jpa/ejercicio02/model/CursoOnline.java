@@ -23,7 +23,7 @@ public class CursoOnline {
     @JoinColumn(name = "profesor_id", foreignKey = @ForeignKey(name = "FK_CURSOONLINE_PROFESOR"))
     private Profesor profesor;
 
-    @OneToMany(mappedBy = "cursoOnline", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cursoOnline", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     @ToString.Exclude
     private List<Video> videos = new ArrayList<>();
